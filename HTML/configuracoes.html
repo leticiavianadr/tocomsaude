@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Tô Com Saúde | Editar Cadastro</title>
+    <link rel="stylesheet" href="../CSS/import.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="titulo">Editar Cadastro</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Atualizar Informações</h2>
+            <form action="../PHP/update.php" method="POST">
+                <div class="campo-formulario">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Informe seu email" required>
+                </div>
+                <div class="campo-formulario">
+                    <label for="campo">Escolha o campo a atualizar:</label>
+                    <select id="campo" name="campo" required>
+                        <option value="nome">Nome</option>
+                        <option value="nascimento">Data de Nascimento</option>
+                        <option value="rg">RG</option>
+                        <option value="email">Email</option>
+                        <option value="senha">Senha</option>
+                    </select>
+                </div>
+                <div class="campo-formulario">
+                    <label for="novo_valor">Novo valor:</label>
+                    <input type="text" id="novo_valor" name="novo_valor" placeholder="Digite o novo valor" required>
+                </div>
+                <button type="submit">Atualizar</button>
+            </form>
+        </section>
+        
+
+        <section>
+            <h2>Excluir Conta</h2>
+            <form action="../PHP/delete.php" method="GET">
+                <input type="hidden" name="id" value="<!-- Coloque o ID do usuário aqui -->">
+                <p>Tem certeza que deseja excluir sua conta?</p>
+                <button type="submit">Excluir Conta</button>
+            </form>
+        </section>
+
+        <section class="colaborador">
+            <h2>Acesso para Colaboradores</h2>
+            <p>Essa opção é apenas para colaboradores verem a quantidade de pessoas cadastradas.</p>
+            <button id="verCadastros" type="button">Ver Cadastros</button>
+            <div id="cadastroContagem"></div> <!-- Div para exibir a quantidade de cadastros -->
+        </section>
+    </main>
+    <footer>
+        <p class="rodape">Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.getElementById('verCadastros').addEventListener('click', function() {
+            fetch('../PHP/read.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cadastroContagem').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar cadastros:', error);
+                    document.getElementById('cadastroContagem').innerHTML = 'Erro ao carregar dados.';
+                });
+        });
+    </script>
+</body>
+
+</html>

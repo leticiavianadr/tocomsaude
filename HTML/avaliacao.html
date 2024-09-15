@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Tô Com Saúde | Agendamento</title>
+    <link rel="stylesheet" href="../CSS/import.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="titulo">Agendamento</h1>
+        <ul class="acesso">
+            <li><a href="entrar.html">Entrar</a></li>
+            <li><a href="home.html" id="home">Home</a></li>
+            <li><a href="cadastro.html">Cadastrar</a></li>
+        </ul>
+    </header>
+    <main>
+        <p>Por aqui você consegue agendar uma consulta com as especialidades disponíveis</p>
+        <section>
+            <form id="feedbackForm">
+                <div class="campo-formulario">
+                    <label for="mensagem">Escreva sua experiência</label>
+                    <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+                </div>
+                <div class="campo-formulario">
+                    <label for="avaliacao">Nota para os serviços</label>
+                    <select name="avaliacao" id="avaliacao">
+                        <option value="">Selecione uma nota</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button type="button" id="enviarButton">Enviar</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p class="rodape">Todos os direitos reservados</p>
+    </footer>
+    <script src="../JAVASCRIP/avaliacao.js"></script>
+</body>
+
+</html>
